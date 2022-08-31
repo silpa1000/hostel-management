@@ -1,0 +1,31 @@
+{% extends 'Teacher/teacher_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-lg-12">
+    {% for i in tr %}
+<div class="col-xxl-4 col-md-8">
+              <div class="card info-card revenue-card">
+                  <div class="filter">
+                  <div class="card-header">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi">View Room{{forloop.counter}}</i></a>
+                  </div>
+                  <div class="card-body">
+                      <div class="Room Details">
+                          <p class="text-muted mb-0" style="font-size: aa"><b>room_choice:</b></p>
+                              <p>{{i.room_choice}}</p>
+                          <p class="text-muted mb-0" style="font-size: aa"><b>no</b></p>
+                              <p>{{i.no}}</p>
+                          <p class="text-muted mb-0" style="font-size: aa"><b>max_persons:</b></p>
+                              <p>{{i.max_persons}}</p>
+                          <p class="text-muted mb-0" style="font-size: aa"><b>room_type:</b></p>
+                              <p>{{i.room_type}}</p>
+                          <p class="text-muted mb-0" style="font-size: aa"><b>price:</b></p>
+                              <p>{{i.price}}</p>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'Student/student_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-xl-12">
+<div class="card mb-6">
+              <div class="card-header">
+                  <i class="fas fa-chart-bar me-1"></i>
+                    Attendance View
+              </div>
+                  <div class="card-body">
+                     <table class="table">
+                       <thead>
+                        <tr>
+                        <th scope="col">Roll No</th>
+<!--                        <th scope="col">Student Name</th>-->
+                        <th scope="col">Attendance</th>
+
+                        <th scope="col">Time</th>
+                        <th scope="col">Date</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                    {% for att in at %}
+                    <tr>
+                        <th scope="row">
+                            {{forloop.counter}}</th>
+<!--                               <td>{{att.name}}</td>-->
+                               <td>{{att.attendance}}</td>
+                               <td>{{att.time}}</td>
+                               <td>{{att.date}}</td>
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                  </table>
+                  </div>
+              </div>
+
+</div>
+</div>
+{% endblock %}

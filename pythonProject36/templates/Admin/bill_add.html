@@ -1,0 +1,25 @@
+{% extends 'Admin/admin_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-lg-12">
+<div class="col-xxl-4 col-md-8">
+              <div class="card info-card revenue-card">
+                  <div class="filter">
+                  <div class="card-header">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi">Bill Payment</i></a>
+                  </div>
+                  <div class="card-body">
+                      <form method="POST">
+                          {% csrf_token %}
+                          <div class="card-body">
+                              {{form|crispy}}
+                              {{bill_form|crispy}}<br>
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                          </div>
+                      </form>
+                  </div>
+                  </div>
+              </div>
+</div>
+</div>
+{% endblock %}

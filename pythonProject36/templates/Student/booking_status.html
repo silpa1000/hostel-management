@@ -1,0 +1,43 @@
+{% extends 'Student/student_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-lg-12">
+<div class="col-xxl-4 col-md-8">
+              <div class="card info-card revenue-card">
+                  <div class="filter">
+                  <div class="card-header">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi">Booking View</i></a>
+                  </div>
+                  <div class="card-body">
+                      <form method="POST" enctype="multipart/form-data">
+                          {% csrf_token %}
+                          <div class="card-body">
+
+                  <table class="table">
+                    <thead>
+                     <tr>
+                        <th scope="col">Sl No</th>
+                        <th scope="col">student</th>
+                        <th scope="col">Date joining</th>
+                        <th scope="col">status</th>
+                     </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in status %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                               <td>{{i.student}}</td>
+                               <td>{{i.Date joining}}</td>
+                               <td>{{i.status}}</td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+    </div>
+
+</div>
+{% endblock %}

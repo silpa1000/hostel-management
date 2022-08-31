@@ -1,0 +1,48 @@
+{% extends 'Admin/admin_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-lg-12">
+                  <div class="col-xxl-4 col-md-12">
+                  <div class="card info-card sales-card">
+                  <div class="filter">
+                  <div class="card-header">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi">Room View</i></a>
+                  </div>
+                  <div class="card-body">
+                      <table class="table">
+                      <thead>
+                      <tr>
+                        <th scope="col">Sl No</th>
+                        <th scope="col">room_choice</th>
+                        <th scope="col">no</th>
+                        <th scope="col">max_persons</th>
+                        <th scope="col">room_type</th>
+                        <th scope="col">price</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                         {% for i in rm %}
+                         <tr>
+                         <th scope="row">{{forloop.counter}}</th>
+                         <td>{{i.room_choice}}</td>
+                         <td>{{i.no}}</td>
+                         <td>{{i.max_persons}}</td>
+                         <td>{{i.room_type}}</td>
+                         <td>{{i.price}}</td>
+                             <td><a href="{% url 'Room_Update' i.id %}"><button type="button" class="btn btn-primary">Update</button></a></td>
+                             <td><form action="{% url 'Room_Delete' i.id %}" method="POST">{% csrf_token %}
+                             <input type="hidden" name="room" value="{{i.id}}"/>
+                             <button type="Submit" class="btn btn-danger">Delete</button>
+                             </form></td>
+                         </tr>
+                          {% endfor %}
+                      </tbody>
+                      </table>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'Teacher/teacher_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-lg-12">
+    {% for i in td %}
+<div class="col-xxl-4 col-md-8">
+              <div class="card info-card revenue-card">
+                  <div class="filter">
+                  <div class="card-header">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi"><b>Mess Menu</b></i></a>
+                  </div>
+                  <div class="card-body">
+                      <div class="Room Details">
+                          <p class="text-muted mb-0" style="font-size: aa"><b>Breakfast:</b></p>
+                              <p>{{i.Breakfast}}</p>
+                          <p class="text-muted mb-0" style="font-size: aa"><b>Lunch</b></p>
+                              <p>{{i.Lunch}}</p>
+                          <p class="text-muted mb-0" style="font-size: aa"><b>Dinner:</b></p>
+                              <p>{{i.Dinner}}</p>
+
+                      </div>
+                  </div>
+                  </div>
+              </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

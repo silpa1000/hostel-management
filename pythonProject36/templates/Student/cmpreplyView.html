@@ -1,0 +1,51 @@
+{% extends 'Student/student_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-lg-12">
+<div class="col-xxl-4 col-md-8">
+              <div class="card info-card revenue-card">
+                  <div class="filter">
+                  <div class="card-header">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi">Complaint</i></a>
+                  </div>
+                  <div class="card-body" >
+                  <table class="table">
+                    <thead>
+                     <tr>
+                        <th scope="col">Sl No</th>
+                        <th scope="col">name</th>
+                        <th scope="col">subject</th>
+                        <th scope="col">description</th>
+                        <th scope="col">date</th>
+                        <th scope="col">reply</th>
+                     </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in rv  %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                               <td>{{i.name}}</td>
+                               <td>{{i.subject}}</td>
+                               <td>{{i.description}}</td>
+                               <td>{{i.date}}</td>
+                         <td>
+                             {% if i.reply == None %}
+                              None
+                             {% else %}
+                             {{i.reply}}
+                             {% endif %}
+
+                         </td>
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

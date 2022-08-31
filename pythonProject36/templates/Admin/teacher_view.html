@@ -1,0 +1,52 @@
+{% extends 'Admin/admin_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-lg-12">
+                  <div class="col-xxl-4 col-md-12">
+                  <div class="card info-card sales-card">
+                  <div class="filter">
+                  <div class="card-header">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi">Teacher View</i></a>
+                  </div>
+                  <div class="card-body">
+                      <table class="table">
+                      <thead>
+                      <tr>
+                        <th scope="col">Sl No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Branch</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact_No</th>
+                        <th scope="col">Image</th>
+<!--                        <th scope="col">Update</th>-->
+<!--                        <th scope="col">Delete</th>-->
+                      </tr>
+                      </thead>
+                      <tbody>
+                         {% for i in st  %}
+                         <tr>
+                         <th scope="row">{{forloop.counter}}</th>
+                         <td>{{i.Name}}</td>
+                         <td>{{i.Age}}</td>
+                         <td>{{i.Address}}</td>
+                         <td>{{i.Branch}}</td>
+                         <td>{{i.Email}}</td>
+                         <td>{{i.Contact_No}}</td>
+                             <td><img src="{{i.photo.url}}"{{i.photo}} width="50" height="60"></td>
+<!--                             <td><a href="{% url 'teacher_update' i.id %}"><button type="button" class="btn btn-primary">Update</button></a></td>-->
+<!--                             <td><form action="{% url 'teacher_delete' i.id %}" method="POST">{% csrf_token %}-->
+<!--                             <input type="hidden" name="teacher" value="{{i.id}}"/>-->
+<!--                             <button type="Submit" class="btn btn-danger">Delete</button>-->
+<!--                             </form></td>-->
+                         </tr>
+                          {% endfor %}
+                      </tbody>
+                      </table>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+</div>
+{% endblock %}

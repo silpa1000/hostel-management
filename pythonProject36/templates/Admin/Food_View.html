@@ -1,0 +1,44 @@
+{% extends 'Admin/admin_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-lg-12">
+                  <div class="col-xxl-4 col-md-12">
+                  <div class="card info-card sales-card">
+                  <div class="filter">
+                  <div class="card-header">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi">Food View</i></a>
+                  </div>
+                  <div class="card-body">
+                      <table class="table">
+                      <thead>
+                      <tr>
+                        <th scope="col">Sl No</th>
+                        <th scope="col">Breakfast</th>
+                        <th scope="col">Lunch</th>
+                        <th scope="col">Dinner</th>
+
+                      </tr>
+                      </thead>
+                      <tbody>
+                         {% for i in fd %}
+                         <tr>
+                         <th scope="row">{{forloop.counter}}</th>
+                         <td>{{i.Breakfast}}</td>
+                         <td>{{i.Lunch}}</td>
+                         <td>{{i.Dinner}}</td>
+
+                             <td><a href="{% url 'Food_Update' i.id %}"><button type="button" class="btn btn-primary">Update</button></a></td>
+                             <td><form action="{% url 'Food_Delete' i.id %}" method="POST">{% csrf_token %}
+                             <input type="hidden" name="food" value="{{i.id}}"/>
+                             <button type="Submit" class="btn btn-danger">Delete</button>
+                             </form></td>
+                         </tr>
+                          {% endfor %}
+                      </tbody>
+                      </table>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+</div>
+{% endblock %}
